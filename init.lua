@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local opts = { buffer = args.buf }
     
+    vim.api.nvim_set_keymap('i', '<A-e>', '<Esc>e', { noremap = true, silent = true })
     -- Knowledge
     vim.keymap.set('n', 'K',  vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)

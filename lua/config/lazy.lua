@@ -20,7 +20,10 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
+vim.opt.shiftwidth = 4     -- Number of spaces for each step of (auto)indent
+vim.opt.tabstop = 4        -- Number of spaces a Tab counts for
+vim.opt.expandtab = true   -- Convert tabs to spaces
+vim.opt.smartindent = true -- Insert indents automatically
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
