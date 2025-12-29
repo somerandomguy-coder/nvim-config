@@ -37,4 +37,6 @@ vim.keymap.set('n', '<leader>R', function()
 end, { desc = 'Reload entire nvim config' })
 vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>lua toggle_terminal()<CR>', { desc = 'Toggle Terminal' })
 
+-- Copy to system clipboard in Visual Mode
+vim.keymap.set('v', '<C-c>', '"+y', { desc = 'Copy to system clipboard' })
 

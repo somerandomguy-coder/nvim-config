@@ -45,3 +45,35 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
   end,
 })
+function _G.run_current_file()
+    local file_name = vim.api.nvim_buf_get_name(0)
+    local file_ext = vim.fn.expand("%:e")
+    local cmd = ""
+
+    -- 1. Determine the command based on file extension
+    if file_ext == "py" then
+        cmd = "python3 " .. file_name
+    elseif file_ext == "js" then
+        cmd = "node " .. file_name
+    elseif file_ext == "html" then
+        cmd = "firefox " .. file_name -- Or 'google-chrome'
+    elseif file_ext == "sh" then
+        cmd = "bash " .. file_name
+    else
+        print("Extension not supported for auto-run")
+        return
+    end
+
+    -- 2. Ensure terminal is open (using your existing function)
+    -- If no terminal window exists, open it
+    if not (term_win and vim.api.nvim_win_is_valid(term_win)) then
+        toggle_terminal()
+    end
+
+    -- 3. Send the command to the terminal buffer
+    -- We use \13 to simulate the 'Enter' key
+    vim.api.nvim_chan_send(vim.bo[term_buf].channel, cmd .. "\13")
+end
+
+-- Keymap to run: Let's use <leader>r for "Run"
+vim.keymap.set('n', '<leader>r', '<cmd>lua run_current_file()<CR>', { desc = 'Run current file in terminal' })
