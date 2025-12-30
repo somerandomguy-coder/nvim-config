@@ -40,3 +40,11 @@ vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>lua toggle_terminal()<CR>', { desc = '
 -- Copy to system clipboard in Visual Mode
 vim.keymap.set('v', '<C-c>', '"+y', { desc = 'Copy to system clipboard' })
 
+-- Toggle comment with Ctrl + /
+-- Note: In many terminals, Ctrl + / is sent as Ctrl + _
+vim.keymap.set('n', '<C-_>', "gcc", { remap = true })
+vim.keymap.set('v', '<C-_>', "gc", { remap = true })
+
+-- For some terminals that actually send Ctrl + /
+vim.keymap.set('n', '<C-/>', "gcc", { remap = true })
+vim.keymap.set('v', '<C-/>', "gc", { remap = true })
