@@ -14,7 +14,7 @@ return {
     configs.setup({
       ensure_installed = { 
         "python", "html", "css", "javascript", "typescript", 
-        "lua", "vim", "vimdoc", "query", "bash" 
+        "lua", "vim", "vimdoc", "query", "bash", "go", "gomod" 
       },
       highlight = { enable = true },
     })

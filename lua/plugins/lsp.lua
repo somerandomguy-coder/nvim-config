@@ -12,7 +12,7 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
 
       mason_lspconfig.setup({
-        ensure_installed = { "pyright", "html", "cssls", "ts_ls", "lua_ls" },
+        ensure_installed = { "pyright", "html", "cssls", "ts_ls", "lua_ls", "gopls"},
       })
 
       -- MODERN 0.11+ WAY TO ENABLE SERVERS
@@ -38,6 +38,14 @@ return {
             workspace = { checkThirdParty = false },
           },
         },
+        vim.lsp.config('gopls', {
+        settings = {
+            gopls = {
+            analyses = { unusedparams = true },
+            staticcheck = true,
+    },
+  },
+})
       })
     end,
   },

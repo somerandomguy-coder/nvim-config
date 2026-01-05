@@ -59,6 +59,8 @@ function _G.run_current_file()
         cmd = "firefox " .. file_name -- Or 'google-chrome'
     elseif file_ext == "sh" then
         cmd = "bash " .. file_name
+    elseif file_ext == "go" then
+        cmd = "go run " .. file_name
     else
         print("Extension not supported for auto-run")
         return
