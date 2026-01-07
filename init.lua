@@ -79,3 +79,4 @@ end
 
 -- Keymap to run: Let's use <leader>r for "Run"
 vim.keymap.set('n', '<leader>r', '<cmd>lua run_current_file()<CR>', { desc = 'Run current file in terminal' })
+
