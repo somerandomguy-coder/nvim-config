@@ -20,6 +20,8 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettier" },
 			css = { "prettier" },
+			cpp = { "clang-format" },
+			c = { "clang-format" },
 		},
 		format_on_save = {
 			timeout_ms = 500,
